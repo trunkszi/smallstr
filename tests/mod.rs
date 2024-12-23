@@ -204,6 +204,14 @@ fn test_write() {
     assert_eq!(s, "foobar");
 }
 
+
+#[test]
+fn test_push_integer() {
+    let mut s: SmallString<8> = SmallString::from("foo");
+    s.push_integer(12345);
+    assert_eq!(s, "foo12345");
+}
+
 // #[cfg(feature = "serde")]
 // #[test]
 // fn test_serde() {

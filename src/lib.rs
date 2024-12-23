@@ -1,3 +1,5 @@
+#![allow(internal_features)]
+#![feature(core_intrinsics)]
 #![feature(str_from_raw_parts)]
 //! 实现 `SmallString`，一个类似 `String` 的小字符串容器
 //!
