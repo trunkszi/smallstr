@@ -187,7 +187,7 @@ impl<const SIZE: usize> SmallString<SIZE> {
     /// ```
     #[inline(always)]
     pub fn push_integer(&mut self, mut num: u64) {
-        let num_len = if num == 0 {
+        let num_len = if num < 10 {
             1
         } else {
             // 我们计算出num的个位数数量
