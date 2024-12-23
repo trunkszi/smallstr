@@ -35,7 +35,7 @@ pub struct SmallString<const SIZE: usize = { const { 1 << 12 } }> {
 impl<const SIZE: usize> SmallString<SIZE> {
     /// 构造一个空字符串。
     #[inline]
-    pub fn new() -> SmallString<SIZE> {
+    pub const fn new() -> SmallString<SIZE> {
         SmallString {
             data: SmallVec::<u8, SIZE>::new(),
         }
