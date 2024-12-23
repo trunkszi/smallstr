@@ -1,0 +1,9 @@
+[env]
+#RUST_LOG = "debug"
+#RUST_BACKTRACE = "full"
+
+[term]
+verbose = true
+
+[build]
+rustc-wrapper = "sccache"

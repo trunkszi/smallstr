@@ -1,39 +1,31 @@
-//! Implements `SmallString`, a `String`-like container for small strings
+#![feature(str_from_raw_parts)]
+//! 实现 `SmallString`，一个类似 `String` 的小字符串容器
 //!
 //! ## `no_std` support
 //!
-//! By default, `smallstr` does not depend on `std`. The `std` feature may be enabled
-//! to add the `std` dependency. The `ffi` feature also implies `std`.
+//! 默认情况下，`smallstr`不依赖于`std`。 `std`功能可能已启用！添加 `std` 依赖项。 `ffi`功能也意味着`std`。
 //!
 //! ## `ffi` feature
 //!
-//! The `ffi` feature will add the following trait implementations to `SmallString`:
+//! `ffi`功能将向`SmallString`添加以下特征实现：
 //!
 //! * `PartialEq<OsStr>`
 //! * `PartialEq<&'_ OsStr>`
 //! * `PartialEq<OsString>`
 //! * `PartialEq<Cow<'_, OsString>>`
 //!
-//! This feature also adds `std` as a dependency.
+//! 此功能还添加`std`作为依赖项。
 //!
-//! ## `serde` support
+//! ## `serde` 支持
 //!
-//! When the `serde` feature is enabled, the traits `serde::Deserialize` and
-//! `serde::Serialize` are implemented for `SmallString`.
+//! 当启用 `serde` 功能时，特征 `serde::Deserialize` 和 ! `serde::Serialize` 是为 `SmallString` 实现的。
 //!
-//! This feature is disabled by default.
+//! 默认情况下禁用此功能。
 //!
-//! By default, the `serde` dependency is compiled with `no_std`.
-//! If the `std` feature is enabled, `std` is added as a dependency in `serde`, as well.
-//!
-//! ## `union` feature
-//!
-//! This feature will enable the `union` feature in `smallvec`, which reduces the size of
-//! a `SmallString` instance. This feature requires Rust 1.49 or newer.
+//! 默认情况下，`serde`依赖项是使用`no_std`编译的。 ！如果启用了`std`功能，`std`也会作为依赖项添加到`serde`中。
 
 #![cfg_attr(not(any(feature = "ffi", feature = "std")), no_std)]
 #![deny(missing_docs)]
-
 extern crate alloc;
 
 pub use string::*;
